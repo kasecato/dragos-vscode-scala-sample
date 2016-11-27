@@ -1,8 +1,8 @@
 ## IDE vs. テキスト エディター
 
-　時は 1990 年 1 月，HTTP (1991) も HTML (1993) も標準化の前夜，Web ブラウザ (1993) すら存在しないその時代に，日本最初のインターネット コミュニティである [fj](https://ja.wikipedia.org/wiki/Fj_(%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97)) で「Emacs」派 VS 「vi」派のエディター論争が起きました。エディター論争は vi 派の東工大 mohta 氏による Emacs 批判投稿で溢れ，最終的に mohta 氏がグループ (fj.editor.misc) ごと消去するという「rmgroup 事件」にまで発展したそうです。
+　時は 1990 年 1 月，HTTP (1991) も HTML (1993) も標準化の前夜，Web ブラウザ (1993) すら存在しないその時代に，日本最初のインターネット コミュニティである [fj](https://ja.wikipedia.org/wiki/Fj_(%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97)) にて「Emacs」派 VS 「vi」派のエディター論争が勃発しました。エディター論争は vi 派の東工大 mohta 氏による Emacs 批判投稿で溢れ，最終的に mohta 氏がグループ (fj.editor.misc) ごと消去するという「rmgroup 事件」にまで発展したそうです。
 
-　あれから 26 年，HTTP は [HTTP/2](http://summerwind.jp/docs/rfc7540/) となり，HTML は [HTML5.1](https://momdo.github.io/html51/Overview.html) までにも成長し，Web ブラウザは [2 度にわたる大戦](https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E6%88%A6%E4%BA%89) を経て戦後処理という十字架（クロスブラウザのクロスに意味を掛け(ry，プログレッシブ エンハンスメント）を開発者に背負わせました。
+　あれから 26 年，HTTP は [HTTP/2](http://summerwind.jp/docs/rfc7540/) となり，HTML は [HTML5.1](https://momdo.github.io/html51/Overview.html) にまでも成長し，Web ブラウザは [2 度にわたる大戦](https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E6%88%A6%E4%BA%89) を経て戦後処理という十字架（クロスブラウザのクロスに意味を掛け(ry，プログレッシブ エンハンスメント）を開発者に背負わせました。
 
 　テキスト エディターの進化も他ではありません。日々複雑化するソフトウェア開発とツール群の学習負担に悩まされた (良い意味で) レイジーな開発者は，様々な言語の生態系を統合したリッチな GUI 環境の提供が~~ビジネスになる~~開発者の生産性を高めることに気づき，IDE (Integrated Development Environment: 統合開発環境) という新しい開発ツールを開発しました（開発を開発というトートロジー（恒真式）ジョーク…）。テキスト エディターは IDE の一部機能となる時代が到来したのです。そして 21 世紀， IDE を使った開発経験しかない IDE ネイティブ世代が誕生したのです。IDE ネイティブの登場は時代の必然だったと言えるでしょう。
 
@@ -19,27 +19,27 @@
 
 >一番だいじなソフト（OS や、Emacs みたいな本当に大規模なツール）は伽藍のように組み立てられなきゃダメで、一人のウィザードか魔術師の小集団が、まったく孤立して慎重に組み立てあげるべきもので、完成するまでベータ版も出さないようでなくちゃダメだと思っていた。 - Eric Raymond
 
-　エディターを開発するということは，一人のウィザードが伽藍のように組み立てるものだとされていた時代を変えたのが，[Linus Torvalds](https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%BC%E3%83%8A%E3%82%B9%E3%83%BB%E3%83%88%E3%83%BC%E3%83%90%E3%83%AB%E3%82%BA) (リーナス・トーバルズ) でした。
+　エディターを開発するということは，一人のウィザードが伽藍のように組み立てるものだとされていた時代を変えたのが，Linux を開発した [Linus Torvalds](https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%BC%E3%83%8A%E3%82%B9%E3%83%BB%E3%83%88%E3%83%BC%E3%83%90%E3%83%AB%E3%82%BA) (リーナス・トーバルズ) でした。
 
 >だからリーヌス・トーヴァルズの開発スタイル――はやめにしょっちゅうリリース、任せられるものはなんでも任して、乱交まがいになんでもオープンにする――には まったく驚かされた。静かで荘厳な伽藍づくりなんかない―― Linux コミュニティはむしろ、いろんな作業やアプローチが渦を巻く、でかい騒がしいバザールに似ているみたいだった（これをまさに象徴しているのが Linux のアーカイブサイトで、ここはどこのだれからでもソフトを受け入れてしまう）。そしてそこから一貫した安定なシステムが出てくる なんて、奇跡がいくつも続かなければ不可能に思えた。 - Eric Raymond
 
 
 ## 言語サーバー プロトコル
 
-　Rosetta Code には [351](https://www.rosettacode.org/wiki/Hello_world/Text) ものプログラム言語で Hello World が刻まれています。プログラミング言語が 351 以上もある 21 世紀に，言語サポート機能を様々なエディターでサポート・保守することは後世にも大きな技術的負債を残すことになるでしょう。
+　Rosetta Code には [351](https://www.rosettacode.org/wiki/Hello_world/Text) ものプログラム言語で Hello World が刻まれています。プログラミング言語が 351 以上もある 21 世紀に，言語サポート機能を様々なプラットフォームとエディターでサポート・保守し続けることは後世に多大な技術的負債を残すことになるでしょう。
 
-　そこで，2016 年に Microsoft の Dirk Bäumer (https://github.com/dbaeumer) 博士は[言語サーバ プロトコル (Language Server Protocol)](https://github.com/Microsoft/language-server-protocol)(Language Server Protocol) を GitHub で公開しました。
+　そこで，2016 年に Microsoft の Dirk Bäumer (https://github.com/dbaeumer) 博士は[言語サーバ プロトコル (Language Server Protocol)](https://github.com/Microsoft/language-server-protocol) を GitHub で公開しました。
 
 　言語サーバ プロトコルとは，入力補完や構文エラーを検出する言語サーバ側と，ソースコード上に入力補完や構文エラーを表示するテキスト エディター (クライアント) 側とのプロトコルを標準化したものです。つまり言語サーバ プロトコルを一度実装してしまえば，どのエディターでも言語サポート機能が使えるようになる ~~Write once, run anywhere~~ という構想です。
 
 [!Language Server Protocol](img/interaction-diagram.png)
 　
-　先の大戦を経験した Web 界隈の開発者は「また Microsoft 独自の仕様か」と眉をひそめるでしょうが，すでに [Go，Rust，Scala など 19 の言語がすでに実装](https://github.com/Microsoft/language-server-protocol/wiki/Protocol-Implementations)されており，Red Hat もあの Eclipse Che に採用しているとおり，実績がすでにあります。筆者の邪推ですが，VS Code の開発者には GoF の 1 人で，Eclipse と JUnit を開発したあの [Erich Gamma](https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%BC%E3%83%AA%E3%83%92%E3%83%BB%E3%82%AC%E3%83%B3%E3%83%9E) (エリック・ガンマ) 博士がいます。Eclipse Che が 言語サーバー プロトコルをサポートしたのは，何かコミュニティがあるのかもしれません。
+　先の大戦を経験した Web 界隈の開発者は「また Microsoft 独自の仕様か」と眉をひそめるでしょうが，すでに [Go，Rust，Scala など 19 の言語がすでに実装](https://github.com/Microsoft/language-server-protocol/wiki/Protocol-Implementations)されています。IDE でも Red Hat が Eclipse Che に採用しているとおり，実績がすでにあります。筆者の邪推ですが，VS Code の開発者には GoF の 1 人で，Eclipse と JUnit を開発したあの [Erich Gamma](https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%BC%E3%83%AA%E3%83%92%E3%83%BB%E3%82%AC%E3%83%B3%E3%83%9E) (エリック・ガンマ) 博士がいます。Eclipse Che が 言語サーバー プロトコルを支持したのは，何かヨーロッパのコミュニティのつながりがあるのかもしれません。
 
 
 ## モダンな言語サポートの今
 
-　プログラミング言語 Scala はオブジェクト指向言語 (OOP: Object-Oriented Programming) と関数型言語 (FP: Functinal Programming) の特徴を合せ持つ代表的なモダンなハイブリッド言語の一つです。IDE が全盛期の 21 世紀以降に登場したモダンな言語はテキスト エディターでも使うことができるのでしょうか？答えは Yes, we can です。Scala 言語は [Emacs](https://www.gnu.org/software/emacs/), [Vim](http://www.vim.org/), [Atom](https://atom.io/) や [Sublime](https://www.sublimetext.com/)　といった多くの開発者と環境に鍛えられた素晴らしい歴史的でモダンなテキスト エディターの選択肢があります。もちろん [Scala IDE for Eclipse](http://scala-ide.org/) や [IntelliJ IDEA](https://www.jetbrains.com/idea/) といった素晴らしい IDE もあり，IDE を Vim ライク，Emacs ライクに操作することもできます。
+　プログラミング言語 Scala はオブジェクト指向言語 (OOP: Object-Oriented Programming) と関数型言語 (FP: Functinal Programming) の特徴を合せ持つ代表的なモダンなハイブリッド言語の一つです。IDE が全盛期の 21 世紀以降に登場したモダンな言語はテキスト エディターでも使うことができるのでしょうか？答えは ~~Yes, we can~~ YES です。Scala 言語は [Emacs](https://www.gnu.org/software/emacs/), [Vim](http://www.vim.org/), [Atom](https://atom.io/) や [Sublime](https://www.sublimetext.com/)　といった多くの開発者と環境に鍛えられた素晴らしい歴史的でモダンなテキスト エディターの選択肢があります。もちろん [Scala IDE for Eclipse](http://scala-ide.org/) や [IntelliJ IDEA](https://www.jetbrains.com/idea/) といった素晴らしい IDE もあり，IDE を Vim ライク，Emacs ライクに操作することもできます。
 
 　しかしよく考えると，Scala のベースとなっている Java (JDK 1.0) がリリースされたのは 1996 年 1 月 23 日のことです。1996 年当時の開発者はどのようにして Java を開発していたのでしょうか？入力補完やコンパイルはどのようにしていたのでしょうか？~~それは Visual J++ を使っていたのです。~~
 
@@ -48,7 +48,9 @@
 
 　Visual Studio (VS) といえば，Microsoft が Windows で展開する IDE が最も有名で，特に Web アプリケーションの開発者にとっては多くの文脈で「VS = Windows にロックインされたクローズドな Web 開発環境」というネガティブな意味を持ってたように筆者は感じていました。Apple が macOS でしか Xcode が使えないように，Microsoft も Windows でしか VS を使うことができないのは，OS ベンダーとして (当時は) 当然の戦略だった思います。
 
-　2015 年 4 月 15 日に [Visual Studio Code](https://code.visualstudio.com/) (VS Code) (Version 1.0.0) を macOS，Linux，Windows のマルチ・プラットフォームでリリースします。 
+　しかしご存知の通り，Microsoft は今や Linux Foundation のメンバーであり，[GitHub で最も OSS へのコミッターが多い組織](https://gist.github.com/alysonla/e14c01ec7a0d2823e7317f7b58b22926#file-orgs-most-contributors-sql)にまで変わりました。
+
+　そして 2015 年 4 月 29 日，macOS，Linux，Windows のマルチ・プラットフォームで動作するテキスト エディター [Visual Studio Code](https://code.visualstudio.com/) (VS Code) (Version 1.0.0) をリリースします。VS Code は GitHub 社が開発した Atom と同じ Electron をベースとしたテキスト エディターですが，エディター部分は Eric Gamma 博士が開発した Monaco (Visual Studio Online) であり，[Rebuid.fm #90](https://rebuild.fm/90/) で Tatsuhiko Miyagawa 氏が評価したとおり「ネイティブ感が凄い」です。
 
 
 ## ENSIME
@@ -60,7 +62,7 @@
 　
 ## Scala language server for VS Code
 
-　ENSIME 自体は独自の言語サーバー プロトコルであり，Microsoft が提唱するすべての言語サーバーの仕様を共通化するプロトコルではありません。ENSIME の言語サーバープロトコルを，共通の言語サーバー プロトコルにラッピングしたプロジェクトが「[Scala langage server for VS Code](https://github.com/dragos/dragos-vscode-scala)」(プロジェクト名は dragos-vscode-scala) です。筆者も本拡張機能のコミッターで sbt コマンド サポートを [Erich Gamma](https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%BC%E3%83%AA%E3%83%92%E3%83%BB%E3%82%AC%E3%83%B3%E3%83%9E) (エリック・ガンマ) 博士の [vscode-npm-scripts](https://github.com/Microsoft/vscode-npm-scripts) を~~パクって~~参考にして追加しています。
+　ENSIME 自体は独自の言語サーバー プロトコルであり，Microsoft が提唱するすべての言語サーバーの仕様を共通化するプロトコルではありません。ENSIME の言語サーバープロトコルを，共通の言語サーバー プロトコルにラッピングしたプロジェクトが「[Scala langage server for VS Code](https://github.com/dragos/dragos-vscode-scala)」(プロジェクト名は dragos-vscode-scala) です。筆者も本拡張機能のコミッターで sbt コマンド サポートを Erich Gamma 博士の [vscode-npm-scripts](https://github.com/Microsoft/vscode-npm-scripts) を~~パクって~~参考にして追加しています。
 
 　開発者の [Iulian Dragos](http://iulidragos.com/about/) 博士はスイス連邦工科大学ローザンヌ校 (EPFL) で Scala の父である Martin Odersky 指導教官の元 PhD を取得し，その後 Scala IDE の開発に従事しています。Scala と Scala IDE の開発者が VS Code の Scala 言語サポート拡張機能の開発に着手したのです！
 
@@ -107,7 +109,7 @@ git clone https://github.com/dragos/dragos-vscode-scala.git
 brew install sbt
 ```
 
-* ENSIME を設定ファイルに記述してください
+* ENSIME を sbt の設定ファイルに記述してください
   * `~/.sbt/0.13/plugins/plugins.sbt` ファイルに以下を追加します
 
 ```sbt
@@ -178,8 +180,7 @@ StarWars.scala  | ソースコードです
 * Scala の開発プロジェクト `build.sbt` を作成します
 ```sbt
 name := "starwars"
-version := "8.0"
-scalaVersion := "2.12.0"
+version := "1.0"
 scalaVersion in ThisBuild := "2.12.0"
 ```
 
@@ -189,7 +190,7 @@ scalaVersion in ThisBuild := "2.12.0"
 sbt ensimeConfig
 ```
 
-* Scala でビジネス ロジックを書きます
+* Scala で Hello Yoda を書きます
 
 ```scala
 object StarWars extends App {
