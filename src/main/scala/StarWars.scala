@@ -1,4 +1,8 @@
+import scala.Mutable
+import scala.Array
+
 object StarWars extends App {
-  println("Not if anything to say about it I have");
-  List(1,2,3).filter
+  List(1,2)
+  val say = (s: String) => println(s)
+  say("Not if anything to say about it I have");
 }

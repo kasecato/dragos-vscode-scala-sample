@@ -1,6 +1,6 @@
 ## IDE vs. テキスト エディター
 
-　時は 1990 年 1 月，HTTP (1991) も HTML (1993) も標準化の前夜，Web ブラウザ (1993) すら存在しないその時代に，日本最初のインターネット コミュニティである [fj](https://ja.wikipedia.org/wiki/Fj_(%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97)) にて「Emacs」派 VS 「vi」派のエディター論争が勃発しました。エディター論争は vi 派の東工大 mohta 氏による Emacs 批判投稿で溢れ，最終的に mohta 氏がグループ (fj.editor.misc) ごと消去するという「rmgroup 事件」にまで発展したそうです。
+　時は 1990 年 1 月，HTTP (1991) も HTML (1993) も標準化の前夜，Web ブラウザ (1993) すら存在しないその時代に，日本最初のインターネット コミュニティである [fj](https://ja.wikipedia.org/wiki/Fj_(%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97)) にて「Emacs」派 VS 「vi」派のエディター論争が勃発しました。エディター論争は vi 派の東工大 [mohta](http://www.geocities.co.jp/Bookend-Soseki/3185/Jokes/articles/420-C.html) 氏による Emacs 批判投稿で溢れ，最終的に mohta 氏がグループ (fj.editor.misc) ごと消去するという「rmgroup 事件」にまで発展したそうです。
 
 　あれから 26 年，HTTP は [HTTP/2](http://summerwind.jp/docs/rfc7540/) となり，HTML は [HTML5.1](https://momdo.github.io/html51/Overview.html) にまでも成長し，Web ブラウザは [2 度にわたる大戦](https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E6%88%A6%E4%BA%89) を経て戦後処理という十字架（クロスブラウザのクロスに意味を掛け(ry，プログレッシブ エンハンスメント）を開発者に背負わせました。
 
@@ -113,8 +113,8 @@ brew install sbt
   * `~/.sbt/0.13/plugins/plugins.sbt` ファイルに以下を追加します
 
 ```sbt
-addSbtPlugin("org.ensime" % "sbt-ensime" % "1.11.3")
-addSbtPlugin("io.get-coursier" % "sbt-coursier" % "1.0.0-M14")
+addSbtPlugin("org.ensime" % "sbt-ensime" % "1.12.4")
+addSbtPlugin("io.get-coursier" % "sbt-coursier" % "1.0.0-M15")
 ```
 
 * Scala 言語サーバーを sbt でビルドしてください
