@@ -26,20 +26,20 @@
 　バザール方式で有名な Linux は 2016 年 12 月 13 日 Linux カーネル 4.9 を正式リリースし，そのカーネルは[総コード行数約2,234万行，5万6,000を超えるファイルで構成](http://gihyo.jp/admin/clip/01/linux_dt/201612/12) されています。[1991 年当時は 1 万行](https://ja.wikipedia.org/wiki/Linux#.E3.82.AB.E3.83.BC.E3.83.8D.E3.83.AB.E9.96.8B.E7.99.BA.E3.81.AE.E9.81.8D.E6.AD.B4)だったそうです。
 
 
-## 言語サーバー プロトコル
+## 言語サーバー プロトコル LSP
 
 　Rosetta Code には [351](https://www.rosettacode.org/wiki/Hello_world/Text) ものプログラム言語で Hello World が刻まれています。プログラミング言語が 351 以上もある 21 世紀に，言語サポート機能を様々なプラットフォームとエディターでサポート・保守し続けることは後世に多大な技術的負債を残すことになるでしょう。
 
-　そこで，2016 年に Microsoft の Dirk Bäumer (https://github.com/dbaeumer) 博士は[言語サーバ プロトコル (Language Server Protocol)](https://github.com/Microsoft/language-server-protocol) を GitHub で公開しました。
+　そこで，2016 年に Microsoft の [Dirk Bäumer](https://github.com/dbaeumer) 博士は[言語サーバ プロトコル (LSP: Language Server Protocol)](https://github.com/Microsoft/language-server-protocol) を GitHub で公開しました。
 
-　言語サーバ プロトコルとは，入力補完や構文エラーを検出する言語サーバ側と，ソースコード上に入力補完や構文エラーを表示するテキスト エディター (クライアント) 側とのプロトコルを標準化したものです。つまり言語サーバ プロトコルを一度実装してしまえば，どのエディターでもプロトコルに則れば言語サポート機能が使えるようになる ~~Write once, run anywhere~~ という構想です。
+　LSP とは，入力補完や構文エラーを検出する言語サーバ側と，ソースコード上に入力補完や構文エラーを表示するテキスト エディター (クライアント) 側とのプロトコルを標準化したものです。つまり LSP を一度実装してしまえば，どのエディターでもプロトコルに則れば言語サポート機能が使えるようになる ~~Write once, run anywhere~~ という構想です。
 
 [!Language Server Protocol](img/interaction-diagram.png)
 （図は [Language Server Protocol](https://github.com/Microsoft/language-server-protocol) JSON RPC のシーケンス）
 
-　先の大戦を経験した Web 界隈の開発者は「また Microsoft 独自の仕様か」と眉をひそめるでしょうが，すでに [Go，Rust，Scala など 19 の言語がすでに実装](https://github.com/Microsoft/language-server-protocol/wiki/Protocol-Implementations)されています (品質や進捗に差はあります)。言語サーバ プロトコルを使用するクライアント側 IDE でも Red Hat が Eclipse Che に既に採用しているとおり，実績があります。
+　先の大戦を経験した Web 界隈の開発者は「また Microsoft 独自の仕様か」と眉をひそめるでしょうが，すでに [Go，Rust，Scala など 19 の言語がすでに実装](https://github.com/Microsoft/language-server-protocol/wiki/Protocol-Implementations)されています (品質や進捗に差はあります)。LSP を使用するクライアント側 IDE でも Red Hat が Eclipse Che に既に採用しているとおり，実績があります。
 
-　Eclipse Che に対する筆者の邪推ですが，VS Code の開発者には GoF の 1 人で，Eclipse と JUnit を開発したあの [Erich Gamma](https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%BC%E3%83%AA%E3%83%92%E3%83%BB%E3%82%AC%E3%83%B3%E3%83%9E) (エリック・ガンマ) 博士がいます。Eclipse Che が 言語サーバー プロトコルを支持したのは，何かヨーロッパのコミュニティのつながりがあるのかもしれません。（良い言語設計はヨーロッパからry
+　Eclipse Che に対する筆者の邪推ですが，VS Code の開発者には GoF の 1 人で，Eclipse と JUnit を開発したあの [Erich Gamma](https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%BC%E3%83%AA%E3%83%92%E3%83%BB%E3%82%AC%E3%83%B3%E3%83%9E) (エリック・ガンマ) 博士がいます。Eclipse Che が LSP を支持したのは，何かヨーロッパのコミュニティのつながりがあるのかもしれません。（良い言語設計はヨーロッパからry
 
 
 ## モダンな言語サポートの今
@@ -62,18 +62,18 @@
 
 　テキスト エディター向けの Scala 言語サポート サーバーに [ENSIME](https://ensime.github.io/) があります。ENSIME は scalac と javac の抽象構文木 (AST: Abstract Syntax Tree) を理解します。[Emacs，Vim，Atom，Sublime をサポート](https://ensime.github.io/editors/)しており，Emacs についてはデバッガー，REPL (Read-Eval-Print Loop) や Java までもサポートしますが，残念ながら[ENSIME 本家の VS Code は開発中](https://github.com/ensime/ensime-vscode)です。
 
-　筆者は本家 ENSIME VS Code のニワカ コミッターであり，[入力補完機能の追加に挑戦](https://github.com/hedefalk/ensime-vscode/pull/1)しましたが，ENSIME 言語サーバー プロトコルと VS Code エディターのクライアントの[方言問題](http://stackoverflow.com/questions/39149525/how-do-i-best-resolve-an-offset-position-into-a-line-col-position-in-a-vscode-d)により，議論の結果 ENSIME サーバー側の機能追加でカバーしようという結論で頓挫しています。（後述する Dragos 版では，ENSIME を拡張するのではなく独自に ENSIME - VS Code の方言問題を[解決](https://github.com/dragos/dragos-vscode-scala/blob/master/languageserver/src/main/scala/langserver/core/TextDocument.scala#L58)しているコードを筆者は確認しました）
+　筆者は本家 ENSIME VS Code のニワカ コミッターであり，[入力補完機能の追加に挑戦](https://github.com/hedefalk/ensime-vscode/pull/1)しましたが，ENSIME の LSP と VS Code エディターのクライアントの[方言問題](http://stackoverflow.com/questions/39149525/how-do-i-best-resolve-an-offset-position-into-a-line-col-position-in-a-vscode-d)により，議論の結果 ENSIME サーバー側の機能追加でカバーしようという結論で頓挫しています。（後述する Dragos 版では，ENSIME を拡張するのではなく独自に ENSIME - VS Code の方言問題を[解決](https://github.com/dragos/dragos-vscode-scala/blob/master/languageserver/src/main/scala/langserver/core/TextDocument.scala#L58)しているコードを筆者は確認しました）
 
 [!ENSIME Architecture](img/architecture.png)
 （図は [ENSIME](https://ensime.github.io/contributing/) のアーキテクチャ）
 　
 ## Scala language server for VS Code
 
-　ENSIME 自体は独自の言語サーバー プロトコルであり，Microsoft が提唱するすべての言語サーバーの仕様を共通化するプロトコルではありません。ENSIME の言語サーバープロトコルを，共通の言語サーバー プロトコルにラッピングしたプロジェクトが「[Scala langage server for VS Code](https://github.com/dragos/dragos-vscode-scala)」(プロジェクト名は dragos-vscode-scala) です。筆者も本拡張機能のコミッターで sbt コマンド サポートを Erich Gamma 博士の [vscode-npm-scripts](https://github.com/Microsoft/vscode-npm-scripts) を~~パクって~~参考にして[追加](https://github.com/dragos/dragos-vscode-scala/pull/14)しています。~~（本当は自動 import 機能を言語サーバ機能を追加してドヤりたかったのですが，ファッション Scala 野郎のため間に合わず）~~
+　ENSIME 自体は独自の言語サーバー プロトコルであり，Microsoft が提唱するすべての言語サーバーの仕様を共通化するプロトコルではありません。ENSIME の LSP を，共通の LSP にラッピングしたプロジェクトが「[Scala langage server for VS Code](https://github.com/dragos/dragos-vscode-scala)」(プロジェクト名は dragos-vscode-scala) です。筆者も本拡張機能のコミッターで sbt コマンド サポートを Erich Gamma 博士の [vscode-npm-scripts](https://github.com/Microsoft/vscode-npm-scripts) を~~パクって~~参考にして[追加](https://github.com/dragos/dragos-vscode-scala/pull/14)しています。~~（本当は自動 import 機能を言語サーバ機能を追加してドヤりたかったのですが，ファッション Scala 野郎のため間に合わず）~~
 
 　開発者の [Iulian Dragos](http://iulidragos.com/about/) 博士はスイス連邦工科大学ローザンヌ校 (EPFL) で Scala の父である Martin Odersky 指導教官の元 PhD を取得し，その後 Scala コンパイラーのメンテナンスと Scala IDE の開発に従事しています。Scala と Scala IDE の開発者が VS Code の Scala 言語サポート拡張機能の開発に着手したのです！
 
-　VS Code の Scala 言語サポートは今回紹介する「[Dragos 版](https://github.com/dragos/dragos-vscode-scala)」とは別に「[ENSIME 本家版](https://github.com/ensime/ensime-vscode)」が存在します。両者の違いは，Dragos 版が言語サーバー プロトコルに準拠しており，ENSIME 本家版は準拠していないということです。ENSIME 本家版は ENSIME Atom 版の開発者 [Viktor Hedefalk](https://github.com/hedefalk) 氏によって支えられており，Atom の Coffee Script の構成で移植しようとしているため，言語サーバー プロトコルには準拠していません。両者の開発状況ですが，両者ともに拡張機能を [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/) で正式公開するには至っていません (11/26 2016 現在)。
+　VS Code の Scala 言語サポートは今回紹介する「[Dragos 版](https://github.com/dragos/dragos-vscode-scala)」とは別に「[ENSIME 本家版](https://github.com/ensime/ensime-vscode)」が存在します。両者の違いは，Dragos 版が LSP に準拠しており，ENSIME 本家版は準拠していないということです。ENSIME 本家版は ENSIME Atom 版の開発者 [Viktor Hedefalk](https://github.com/hedefalk) 氏によって支えられており，Atom の Coffee Script の構成で移植しようとしているため，LSP には準拠していません。両者の開発状況ですが，両者ともに拡張機能を [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/) で正式公開するには至っていません (11/26 2016 現在)。
 
 　本稿で紹介する VS Code で Scala をサポートする方法は非常に面倒で，言語サポート機能も限定的で，動作不具合もあります。ただ，この面倒な環境を作ってしまえば今日から Scala 言語サポート機能の開発者になれるのです。
 
@@ -84,10 +84,10 @@
 ---------|-----------|------
 [JRE](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)      | >= 8u111  | Java 言語サポート
 [sbt](http://www.scala-sbt.org/index.html)      | = 0.13   | ビルド ツール
-[ENSIME](https://ensime.github.io/build_tools/sbt/)   | = 1.11.3 | Scala 言語サーバー (最新は 1.12.4 ですが，筆者の環境では動作未確認のため)
-[VS Code](https://code.visualstudio.com/)  | >= 1.7.2  | テキスト エディター 
+[ENSIME](https://ensime.github.io/build_tools/sbt/)   | = 1.12.4 | Scala 言語サーバー
+[VS Code](https://code.visualstudio.com/)  | >= 1.8.1  | テキスト エディター 
 [Git](https://git-scm.com/)  | = 2.10.2  | バージョン コントロール システム
-[Scala language server for VS Code](https://github.com/dragos/dragos-vscode-scala) | = 0.0.4 | VS Code Scala 言語サポート拡張機能
+[Scala language server for VS Code](https://github.com/dragos/dragos-vscode-scala) | >= 0.0.4 | VS Code Scala 言語サポート拡張機能
 [Node.js](https://nodejs.org/ja/) | = 6.9.1 | VS Code 拡張機能ビルド
 [vsce](https://code.visualstudio.com/docs/tools/vscecli) | >= 1.17.0 | VS Code 拡張機能公開 ツール
 
@@ -95,6 +95,12 @@
 
 * JDK をインストーラからインストールしてください
   * [Java SE Development Kit 8 Downloads](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+
+* JAVA_HOME を `~/.bash_profile` に設定してください
+
+```bash
+export JAVA_HOME='/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home'
+```
 
 * VS Code をインストーラからインストールしてください (brew)
   * [Visual Studio Code](https://code.visualstudio.com/)
@@ -121,7 +127,7 @@ brew install sbt
   * `~/.sbt/0.13/plugins/plugins.sbt` ファイルに以下を追加します
 
 ```sbt
-addSbtPlugin("org.ensime" % "sbt-ensime" % "1.11.3")
+addSbtPlugin("org.ensime" % "sbt-ensime" % "1.12.4")
 addSbtPlugin("io.get-coursier" % "sbt-coursier" % "1.0.0-M15")
 ```
 
@@ -189,7 +195,7 @@ StarWars.scala  | ソースコードです
 ```sbt
 name := "starwars"
 version := "1.0"
-scalaVersion in ThisBuild := "2.12.0"
+scalaVersion in ThisBuild := "2.11.8"
 ```
 
 * .ensime ファイルを作成します
@@ -219,7 +225,7 @@ Not if anything to say about it I have
 * Scala と Scala IDE の開発者である Iulian Dragos 博士が開発中です
 * VS Code Market Place ではまだ未公開のため，ソースコードからビルドする必要があります
 * Microsoft は言語サーバーの標準化を推進しています
-* 言語サーバー プロトコルはすでに [Go, Rust, Scala](https://github.com/Microsoft/language-server-protocol/wiki/Protocol-Implementations) などイケてる言語でも実績があります
+* LSP はすでに [Go, Rust, Scala](https://github.com/Microsoft/language-server-protocol/wiki/Protocol-Implementations) などイケてる言語でも実績があります
 * 誰でも言語サポート機能を開発できる時代が来ました！
 * プロダクト コードはチームで合意したツール（IDE やエディター）を使いましょう
 
